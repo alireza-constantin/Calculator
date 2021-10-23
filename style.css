@@ -1,0 +1,88 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap'); */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10%;
+	background-color: aquamarine;
+	user-select: none;
+	/* font-family: 'Open Sans', sans-serif; */
+}
+
+#calc {
+	height: auto;
+	box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+	background-color: #f7f7f7;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#calc #display {
+	background-color: #1d1d1d;
+	width: 100%;
+	height: 80px;
+	padding: 0.4rem 1rem;
+	text-align: right;
+}
+
+#display #prevDis {
+	font-size: 1.2rem;
+	color: #a09f9f;
+}
+
+#display #currDis {
+	font-size: 1.5rem;
+	color: #cac8c8;
+}
+
+#panel {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#panel span {
+	border: 1px solid #ccc;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	display: inline-block;
+	font-size: 1.5rem;
+	text-align: center;
+	width: 90px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+#panel span:hover {
+	color: orangered;
+}
+
+#panel .op:not(:last-child) {
+	height: 45px;
+	background-color: #e7e7e7;
+}
+
+#panel .op.equal {
+	width: auto;
+	height: auto;
+	grid-row: span 4;
+	background-color: orangered;
+	border-color: orangered;
+}
+
+#panel .op.equal:hover {
+	color: #000;
+	opacity: 0.8;
+}
