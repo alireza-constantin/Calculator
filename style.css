@@ -33,21 +33,26 @@ body {
 	height: 80px;
 	padding: 0.4rem 1rem;
 	text-align: right;
+	display: flex;
+	flex-direction: column;
 }
 
 #display #prevDis {
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	color: #a09f9f;
+	flex: 1;
 }
 
 #display #currDis {
-	font-size: 1.5rem;
-	color: #cac8c8;
+	font-size: 1.8rem;
+	color: #e7e5e5;
+	flex: 1;
 }
 
 #panel {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+	position: relative;
 }
 
 #panel span {
@@ -69,12 +74,16 @@ body {
 	color: orangered;
 }
 
-#panel .op:not(:last-child) {
+#panel span:active {
+	box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#panel .op {
 	height: 45px;
 	background-color: #e7e7e7;
 }
 
-#panel .op.equal {
+#panel .equal {
 	width: auto;
 	height: auto;
 	grid-row: span 4;
@@ -82,7 +91,95 @@ body {
 	border-color: orangered;
 }
 
-#panel .op.equal:hover {
+#panel .equal:hover {
 	color: #000;
 	opacity: 0.8;
+}
+
+#panel .delete {
+	font-weight: bold;
+	background-color: #e7e7e7;
+	font-size: 1.8rem;
+}
+
+#panel .history {
+	background-color: #e7e7e7;
+	font-size: 1rem;
+}
+
+.modal.show {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(17, 17, 17, 0.9);
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.modal {
+	display: none;
+	animation: show 1s forwards;
+}
+
+@keyframes show {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.modal::-webkit-scrollbar {
+	width: 10px;
+	background-color: #979595;
+}
+
+.modal::-webkit-scrollbar-track {
+	box-shadow: inset 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modal::-webkit-scrollbar-thumb {
+	background-color: #333;
+}
+
+.modal p {
+	font-size: 1.8rem;
+	color: #bdbbbb;
+	padding: 0.7rem;
+	margin: auto;
+	text-align: center;
+	box-shadow: inset 2px 3px 5px rgba(0, 0, 0, 0.8);
+	width: 70%;
+}
+
+.modal p:hover {
+	color: orangered;
+}
+
+.modal a {
+	background-color: #000;
+	color: #e7e7e7;
+	padding: 0.4rem 0.8rem;
+	cursor: pointer;
+	font-size: 1rem;
+	position: absolute;
+	top: 0;
+	right: 0px;
+	font-weight: 200;
+	transition: all 0.5s;
+}
+
+.modal a:hover {
+	color: orangered;
+	background-color: #fff;
+}
+
+.modal a:active {
+	transform: scale(0.98);
 }
